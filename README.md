@@ -10,7 +10,44 @@ Disentangled representation learning offers useful properties such as dimension 
 Although deep learning techniques have been widely applied to spatio-temporal data mining, there has been little attention to further disentangle the latent features and understanding their contribution to the model performance, particularly their mutual information and correlation across features.
 In this study, we adopt two state-of-the-art disentangled representation learning methods and apply them to three large-scale public spatio-temporal datasets. To evaluate their performance, we propose an internal evaluation metric focusing on the degree of correlations among latent variables of the learned representations and the prediction performance of the downstream tasks. Empirical results show that our modified method can learn disentangled representations that achieve the same level of performance as existing state-of-the-art ST deep learning methods in a spatio-temporal sequence forecasting problem. Additionally, we find that our methods can be used to discover real-world spatial-temporal semantics to describe the variables in the learned representation.
 
-## ARCHITECTURE
+## Architecture
+<p align="center"><img width="100%" height="100%" src="images/fig3.png"></p> 
+
+## Prerequisites
+Our code is based on Python3 (>= 3.7). Here is the dependencies to run the code. The major libraries are listed as follows, more detail please check the requirement.txt
+* Torch (>=1.40)
+* NumPy (>= 1.17.3)
+* SciPy (>= 1.4.1)
+* Pandas (>= 1.0.1)
+
+## Run Experiment
+1. Unzip the dataset.7z file in experiments dir first
+    ```
+        ├── config
+        │   ├── bikeNYC.ini
+        │   ├── melbPed.ini
+        │   └── taxiBJ.ini
+        ├── data 
+        ├── bikeNYC
+        │   ├── melbPed
+        │   └── taxiBJ
+        ├── mylib 
+        │   ├── __init__.py
+        │   ├── dataset
+        │   ├── eval
+        │   ├── model
+        │   ├── solver
+        │   └── utils.py
+        ├── downStream.py 
+        ├── loadSolver.py 
+        ├── main.py 
+    ```
+2. Change the config file (setting hyper-parameters)
+   
+3. run the code
+    ```python
+    python -B main.py --config_name <the name of your config file>
+    ```
 
 ## Bibtex
 If you find this code or the paper useful, please consider citing:
